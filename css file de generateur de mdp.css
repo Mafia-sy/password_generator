@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Générateur de mot de passe</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        pre {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 20px auto;
+            width: 80%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        code {
+            font-family: "Courier New", monospace;
+            font-size: 14px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Générateur de mot de passe</h1>
+    <pre>
+        <code>
+            Generateur_de_mot_de_passe:
+            import random
+
+            # Caractères
+            lettre = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+            nombre = "123456789"
+            symboles = "@^#/:.;?,%*$+)()[]{}"
+            caractere = lettre + lettre.lower() + nombre + symboles
+            caractere_no_symboles = lettre + lettre.lower() + nombre
+
+            while True:
+                longueur_mot_de_passe = int(input("Entrez la longueur du mot de passe :"))
+                nombre_de_mot_de_passe = int(input("Entrez le nombre de mot de passe à afficher:"))
+                caractere_speciaux_ask = str(input("Dois-je mettre des caractères spéciaux dans le mot de passe?:"))
+                if caractere_speciaux_ask == 'oui':
+                    for i in range(0, nombre_de_mot_de_passe):
+                        mot_de_passe = ""
+                        for i in range(0, longueur_mot_de_passe):
+                            c_mot_de_passe = random.choice(caractere)
+                            mot_de_passe = mot_de_passe + c_mot_de_passe
+                        print('votre mot de passe est :', mot_de_passe)
+
+                elif caractere_speciaux_ask == 'non':
+                    for i in range(0, nombre_de_mot_de_passe):
+                        mot_de_passe = ""
+                        for i in range(0, longueur_mot_de_passe):
+                            c_mot_de_passe = random.choice(caractere)
+                            mot_de_passe = mot_de_passe + c_mot_de_passe
+                        print('votre mot de passe est :', mot_de_passe)
+                elif caractere_speciaux_ask != 'oui' and caractere_speciaux_ask != 'non':
+                    print("ERREUR")
+        </code>
+    </pre>
+</body>
+
+</html>
